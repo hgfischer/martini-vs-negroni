@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/codegangsta/negroni"
@@ -26,5 +27,11 @@ func main() {
 
 	// add the router as the last handler in the stack
 	n.UseHandler(mux)
-	n.Run(":3001")
+	go n.Run(":3001")
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello world!\n")
+	})
+
+	log.Fatal(http.ListenAndServe(":3002", nil))
 }
