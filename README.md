@@ -1,25 +1,40 @@
 # Martini
 ```
-$ wrk -c 100 -d 1m -t 50 http://127.0.0.1:3000/
+wrk -c 100 -d "1m" -t 50 http://127.0.0.1:3000/
 Running 1m test @ http://127.0.0.1:3000/
   50 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    69.34ms   38.30ms 336.79ms   75.58%
-    Req/Sec    35.99     26.21   333.00     89.60%
-  109079 requests in 1.00m, 13.52MB read
-Requests/sec:   1819.08
-Transfer/sec:    230.94KB
+    Latency     8.00ms    2.41ms  33.81ms   68.17%
+    Req/Sec   265.24     60.66     1.05k    66.11%
+  776338 requests in 1.00m, 96.25MB read
+Requests/sec:  12938.99
+Transfer/sec:      1.60MB
 ```
+
 
 # Negroni
 ```
-$ wrk -c 100 -d 1m -t 50 http://127.0.0.1:3001/
+wrk -c 100 -d "1m" -t 50 http://127.0.0.1:3001/
 Running 1m test @ http://127.0.0.1:3001/
   50 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    47.47ms   23.46ms 255.06ms   76.00%
-    Req/Sec    51.59     38.67   649.00     92.31%
-  155536 requests in 1.00m, 19.28MB read
-Requests/sec:   2590.55
-Transfer/sec:    328.88KB
+    Latency     6.09ms    1.42ms  20.91ms   66.62%
+    Req/Sec   343.21     61.36     1.50k    72.25%
+  995994 requests in 1.00m, 123.48MB read
+Requests/sec:  16600.27
+Transfer/sec:      2.06MB
+```
+
+
+# Net/HTTP
+```
+wrk -c 100 -d "1m" -t 50 http://127.0.0.1:3002/
+Running 1m test @ http://127.0.0.1:3002/
+  50 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.85ms    1.02ms  23.88ms   72.49%
+    Req/Sec   556.19    106.29     5.00k    55.14%
+  1581904 requests in 1.00m, 196.12MB read
+Requests/sec:  26366.30
+Transfer/sec:      3.27MB
 ```
