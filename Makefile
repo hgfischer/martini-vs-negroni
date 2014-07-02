@@ -4,7 +4,7 @@ THREADS := 50
 
 all:
 		go build
-		./martini-vs-negroni 2>&1 >/dev/null &
+		./martini-vs-negroni 2>&1 >output.log &
 		sleep 5
 		echo "# Martini"
 		wrk -c $(CONCURRENCY) -d $(DURATION) -t $(THREADS) http://127.0.0.1:3000/

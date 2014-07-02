@@ -22,7 +22,7 @@ func main() {
 	})
 
 	// Use the default middleware.
-	n := negroni.Classic()
+	n := negroni.New(negroni.NewRecovery())
 	// ... Add any other middlware here
 
 	// add the router as the last handler in the stack
